@@ -14,24 +14,23 @@ def draw_pixel(screen, x, y, colour):
 
 
 def line(start, stop):
-    STEPS = 1000
     x_start, y_start = start
     x_stop, y_stop = stop
-    step = 0
-    while step <= STEPS:
-        percentage = step / STEPS
+    WHEN_TO_STOP = 500
+    counting = 0
+    while counting <= WHEN_TO_STOP:
+        percentage = counting / WHEN_TO_STOP
         x = x_start + (x_stop - x_start) * percentage
         y = y_start + (y_stop - y_start) * percentage
         draw_pixel(screen, x, y, BLACK)
-        step += 1
+        counting += 1
 
 
 screen = pygame.display.set_mode((SIZE, SIZE))
 screen.fill(WHITE)
 
-line((0, 0), (SIZE, SIZE))
-line((0, 20), (SIZE, SIZE))
-line((0, 40), (SIZE, SIZE))
+line((300, 300), (600, 600))
+
 pygame.display.flip()
 
 input()
